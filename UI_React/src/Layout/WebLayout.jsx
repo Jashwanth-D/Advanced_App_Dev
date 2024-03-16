@@ -5,12 +5,11 @@ import Footer from '../Components/Public/Footer'
 
 const WebLayout = () => {
   return (
-    <><div className='h-screen w-screen p-0 m-0 flex-col justify centres'>
+    <><div className='h-screen w-screen p-0 m-0 flex-col justify-centre'>
       <Navbar />
       <div>
         <Outlet />
       </div>
-      <Footer />
     </div>
     </>
 

@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import DropDownProfile from './DropDownProfile'
+
+import profilepice from '../../assets/IMG/profile.png';
 
 const Navbar = () => {
-    const links=
-    [
+
+    const [openDropDown, setOpenDropDown] = useState(false)
+
+    const links= [
         {
             name:'Home',
             path:'/'
         },
         {
             name:'About Us',
-            path:'/Aboutus'
+            path:'/aboutus'
         },
         {
             name:'contact',
-            path:'/contact'
+            path:'/Contact'
         },
         {
             name:'login',
@@ -29,13 +34,19 @@ const Navbar = () => {
             </div>
             <div className='w-1/4 flex flex-row justify-between items-center text-black-600 font-bold'>
                 {links.map((link,index)=>(
-                    <NavLink key={index} to={link.path} className='cursor-pointer'>
+                    <NavLink key={index} to={link.path} onClick={() => setOpenDropDown(false)} className='cursor-pointer'>
                         {link.name}
                     </NavLink>
                 ))
-                }
+                    }
+                <span onClick={() => setOpenDropDown(!openDropDown)} className='cursor-pointer'>
+                        <img src={profilepice} style={{ blockSize:"25px"}} />
+                    </span>
             </div>
         </div>
+        {
+            openDropDown && <DropDownProfile/>
+        }
     </div>
   )
 }
