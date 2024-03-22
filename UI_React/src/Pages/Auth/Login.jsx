@@ -1,115 +1,104 @@
-// import React from 'react'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-import { Link } from "react-router-dom";
-import houseboat from '../../assets/IMG/houseboat.png'
-// const Login = () => {
-//   return (
-//     <div>Login</div>
-//   )
-// }
+function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [rememberMe, setRememberMe] = useState(false);
+    const navigate = useNavigate();
 
-// export default Login
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
-export default function Example() {
-  return (
-    <>
-      {/*
-        This example requires updating your template:
+    const handleLogin = (e) => {
+        e.preventDefault();
+        
+        
+        if (email === 'admin@gmail.com' && password === 'admin') {
+            navigate('/admindash'); 
+        } else {
+      
+            navigate('/');
+        }
+    };
 
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm flex items-center justify-center flex-col">
-
-          <img
-            className="flex justify-center h-20 w-20 "
-            src={houseboat}
-            
-            alt="Your Company"
-            />
-            <div>
-            HarborHut
-
-            </div>
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign in to your account
-          </h2>
-        </div>
-
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                Email address
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                  Password
-                </label>
-                <div className="text-sm">
-                  <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                    Forgot password?
-                  </a>
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 py-30 px-90 sm:px-6 lg:px-8 ">
+            <div className="bg-white rounded-lg shadow-lg w-100 h-auto grid grid-cols-2 ">
+               
+                <div className="bg-indigo-600 flex items-center justify-center">
+                    <img
+                        src="https://media.istockphoto.com/id/1172802520/photo/houseboat-on-kerala-backwaters-in-alleppey-india.jpg?s=612x612&w=0&k=20&c=vHPOY4-CCqw4YzygoXmT4M_UVbhG2VTwLeN9tjTXSuw="
+                        alt="Login"
+                        className="object-cover h-full"
+                        height="50"
+                    />
                 </div>
-              </div>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="current-password"
-                  required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
 
-            <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              ><Link to='/'>Sign in</Link>
-              </button>
+                <div className="flex flex-col justify-center">
+                    <div className="max-w-md w-full space-y-8 p-8">
+                        <h2 className="text-center text-3xl text-gray-900">Sign in to your account</h2>
+                        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
+                      
+                            <div>
+                                <label htmlFor="email-address" className="sr-only">Email address</label>
+                                <input
+                                    id="email-address"
+                                    name="email"
+                                    type="email"
+                                    autoComplete="email"
+                                    required
+                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    placeholder="Email address"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                />
+                            </div>
+                         
+                            <div>
+                                <label htmlFor="password" className="sr-only">Password</label>
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    required
+                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                            </div>
+                       
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="remember-me" className="flex items-center">
+                                    <input
+                                        id="remember-me"
+                                        type="checkbox"
+                                        className="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out"
+                                        checked={rememberMe}
+                                        onChange={() => setRememberMe(!rememberMe)}
+                                    />
+                                    <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                                </label>
+                    
+                                <a href="#" className="text-sm text-indigo-600 hover:text-indigo-800">Forgot password?</a>
+                            </div>
+                            
+                            <div>
+                                <button
+                                    type="submit"
+                                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                >
+                                    Sign in
+                                </button>
+                                <div className="mt-4 text-center">
+                                    <p className="text-sm text-black">Don't have an account? <Link to="/Register" className="text-sm text-indigo-600 hover:text-indigo-800">Sign Up</Link></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </form>
-
-          <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{' '}
-            <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-              <Link to='/Register'>Register</Link>
-            </a>
-          </p>
         </div>
-      </div>
-    </>
-  )
+    );
 }
+
+export default Login; 

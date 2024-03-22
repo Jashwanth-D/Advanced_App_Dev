@@ -4,6 +4,8 @@ import DropDownProfile from './DropDownProfile'
 
 import profilepice from '../../assets/IMG/profile.png';
 import houseboat from '../../assets/IMG/houseboat.png'
+import LandingPage from '../../Pages/LandingPage';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -28,7 +30,7 @@ const Navbar = () => {
         }
     ]
   return (
-    <div className='h-[5vh] w-screen flex flex-row justify-center items-center bg-emerald-400'>
+    <div className='h-[5vh] w-screen flex flex-row justify-center items-center bg-violet-300'>
                 <img
             className="flex flex-col justify-center h-11 w-10 "
             src={houseboat}
@@ -37,7 +39,7 @@ const Navbar = () => {
             />
         <div className='w-[90%] h-full flex flex-row justify-between items-center'>
             <div className='w-1/4 text-2xl font-bold text-blue-950'>
-            HarborHut
+            <Link to='/'>HarborHut</Link>
             </div>
             <div className='w-1/4 flex flex-row justify-between items-center text-black-600 font-bold'>
                 {links.map((link,index)=>(

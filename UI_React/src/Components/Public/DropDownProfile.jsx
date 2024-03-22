@@ -1,13 +1,15 @@
 import React from 'react'
+import UserDashboard from './userDashboard'
+import { Link } from "react-router-dom";
 
 
 const DropDownProfile = () => {
   return (
     <div className=' dropDownProfile'>
         <ul className='flex flex-col gap-4'>
-            <li>Profile</li>
-            <li>Dashboard</li>
-            <li>Logout</li>
+            <Link to='/UserDashboard'>My Profile</Link>
+            <Link to='/MyBooking'>Bookings</Link>
+            <Link to='/Login'>Log out</Link>
         </ul>
     </div>
   )
