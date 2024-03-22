@@ -4,6 +4,7 @@ import Home from './Pages/Home'
 import WebLayout from './Layout/WebLayout'
 import Aboutus from './Components/Public/aboutus'
 import Register from './Pages/Auth/Register'
+import userDashboard from './Components/Public/userDashboard'
 
 const Signup =lazy(()=> import('./Pages/Auth/Register')) 
 const Contact =lazy(()=> import('./Pages/Contact'))
@@ -21,6 +22,7 @@ const App =()=> {
         <Route path="/Register" element={<Register/>}></Route>
         <Route path="/contact" element={<Contact/>}></Route>
         <Route path="/Aboutus" element={<Aboutus/>}></Route>
+        <Route path="/userDashboard" element={<userDashboard/>}></Route>
       </Route>
     </Routes>
     </Suspense>

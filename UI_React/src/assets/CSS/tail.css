@@ -28,3 +28,38 @@
     border-left:2px solid gray;
     border-top:2px solid grey ;
 }
+
+.HomeContainer1{
+    position: absolute;             
+    left: 25%;
+    top: 50%;
+    size: 30%;
+    width: 500px;
+    height: 200px;
+    text-align: center;
+    background-color: grey;
+    border-radius: 2px ;
+
+}
+.HomeContainer2{
+    position: absolute;             
+    left: 50%;
+    top: 50%;
+    size: 30%;
+    width: 500px;
+    height: 200px;
+    text-align: center;
+    background-color: grey;
+    border-radius: 2px ;
+}
+.HomeContainer3{
+    position: absolute;             
+    left: 75%;
+    top: 50%;
+    size: 30%;
+    width: 500px;
+    height: 200px;
+    text-align: center;
+    background-color: grey;
+    border-radius: 2px ;
+}
